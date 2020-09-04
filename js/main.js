@@ -23,24 +23,31 @@ gameBoard.getBall(ball2);
 randomDirection(ball2);
 
 function randomDirection(b) {
-    let random = Math.random() * 2 < 1;
-    if (random) {
+    let random = Math.random() * 2;
+    let random2 = Math.random() * 2;
+    console.log(random);
+    console.log(random2);
+    console.log('sY ' + b.speedY);
+    console.log('sX ' + b.speedX);
+    if (random < 1) {
         b.speedX = -b.speedX;
     }
-    if (Math.random() * 2 < 1) {
+    if (random2 < 1) {
         b.speedY = -b.speedY;
-        console.log()
+
     }
+    console.log('sY ' + b.speedY);
+    console.log('sX ' + b.speedX);
 }
 
 
 run(gameBoard);
 ////
 context.beginPath();
-context.lineTo(canvas.width/2, canvas.height);
+context.lineTo(canvas.width / 2, canvas.height);
 context.stroke();
 context.closePath();
-document.addEventListener('keydown', function (event) {
+document.addEventListener('keydown', function(event) {
     if (event.keyCode == 83) {
         paddle.isMovingDown = true;
     }
@@ -49,7 +56,7 @@ document.addEventListener('keydown', function (event) {
     }
     console.log(event);
 });
-document.addEventListener('keyup', function (event) {
+document.addEventListener('keyup', function(event) {
     if (event.keyCode == 83) {
         paddle.isMovingDown = false;
 
@@ -60,7 +67,7 @@ document.addEventListener('keyup', function (event) {
 });
 
 ////
-document.addEventListener('keydown', function (event) {
+document.addEventListener('keydown', function(event) {
 
     if (event.keyCode == 40) {
         paddle2.isMovingDown = true;
@@ -69,7 +76,7 @@ document.addEventListener('keydown', function (event) {
         paddle2.isMovingUp = true;
     }
 });
-document.addEventListener('keyup', function (event) {
+document.addEventListener('keyup', function(event) {
 
     if (event.keyCode == 40) {
         paddle2.isMovingDown = false;
@@ -107,7 +114,7 @@ function run(game) {
                 console.log('right');
                 score[0] = score[0] + 1;
                 document.getElementById('0').innerHTML = score[0];
-                console.log(score);
+                //console.log(score);
 
             }
 
@@ -130,11 +137,12 @@ function run(game) {
             for (let i = 0; i < game.ball.length; i++) {
                 game.ball[i].coorX = canvas.width / 2;
                 game.ball[i].coorY = canvas.height / 2;
-
-                randomDirection(game.ball[i]);
-
                 game.ball[i].speedX = game.ball[i].defaultSpeedX;
                 game.ball[i].speedY = game.ball[i].defaultSpeedY;
+
+                randomDirection(game.ball[i]);
+                console.log("rX" + game.ball[i].speedX);
+                console.log("rY" + game.ball[i].speedY);
             }
             for (let i = 0; i < game.bar.length; i++) {
                 game.bar[i].height = 150;

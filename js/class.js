@@ -1,4 +1,4 @@
-let score=[0,0];
+let score = [0, 0];
 const X = 800;
 const Y = 400;
 let fps = 100;
@@ -13,19 +13,19 @@ function GameBoard() {
     this.bar = [];
     this.isOver = false;
 
-    this.getBall = function (b) {
+    this.getBall = function(b) {
         this.ball.push(b);
     }
-    this.getBar = function (bar) {
+    this.getBar = function(bar) {
         this.bar.push(bar);
     }
 
-    this.drawBoard = function () {
+    this.drawBoard = function() {
         let board = '<canvas id="myCanvas" width="' + this.width + '" height="' + this.height + '"></canvas>';
         return board;
     }
 
-    this.drawBar = function (bar) {
+    this.drawBar = function(bar) {
         let index = this.bar.indexOf(bar);
         context.beginPath();
         context.rect(this.bar[index].coorX, this.bar[index].coorY, this.bar[index].width, this.bar[index].height);
@@ -34,7 +34,7 @@ function GameBoard() {
         context.closePath();
     }
 
-    this.drawBall = function (b) {
+    this.drawBall = function(b) {
         let color = getRandomColor();
         let index = this.ball.indexOf(b);
         context.beginPath();
@@ -44,12 +44,11 @@ function GameBoard() {
         context.closePath();
     }
 
-    this.clear = function () {
+    this.clear = function() {
         context.clearRect(0, 0, this.width, this.height);
     }
 
-    this.reset = function () {
-    }
+    this.reset = function() {}
 }
 
 /////////////////////////////////////////////////////////////////
@@ -58,8 +57,8 @@ function Ball(name) {
     this.coorX = X / 2;
     this.coorY = Y / 2;
     this.radius = 20;
-    this.defaultSpeedX = Math.random()*7 + 3;
-    this.defaultSpeedY = Math.random()*7 + 3;
+    this.defaultSpeedX = Math.random() * 7 + 3;
+    this.defaultSpeedY = Math.random() * 7 + 3;
 
     this.speedX = this.defaultSpeedX;
     this.speedY = this.defaultSpeedY;
@@ -67,13 +66,13 @@ function Ball(name) {
 
     this.angle;
 
-    this.move = function () {
+    this.move = function() {
         this.coorX += this.speedX;
         this.coorY += this.speedY;
 
-            // if (this.coorX + this.radius > canvas.width && this.speedX > 0) {
-            //     this.speedX = -this.speedX;
-            // }
+        // if (this.coorX + this.radius > canvas.width && this.speedX > 0) {
+        //     this.speedX = -this.speedX;
+        // }
 
         if (this.coorY - this.radius < 0 && this.speedY < 0) {
             this.speedY = -this.speedY;
@@ -85,8 +84,8 @@ function Ball(name) {
         }
     };
 
-    this.bounce = function (bar) {
-        console.log(bar.width + ' - ' + this.radius);
+    this.bounce = function(bar) {
+        //console.log(bar.width + ' - ' + this.radius);
         let c = false;
         if (bar.name == 'barLeft') {
             if (this.coorY + this.radius / 2 >= bar.coorY &&
@@ -97,8 +96,8 @@ function Ball(name) {
                 c = true;
             }
         } else {
-            if (this.coorY + this.radius  >= bar.coorY &&
-                this.coorY - this.radius  <= bar.coorY + bar.height &&
+            if (this.coorY + this.radius >= bar.coorY &&
+                this.coorY - this.radius <= bar.coorY + bar.height &&
                 this.coorX + this.radius > bar.coorX &&
                 this.coorX + this.radius < bar.coorX + bar.width &&
                 this.speedX > 0) {
@@ -127,21 +126,21 @@ function Bar(coordinateX, name) {
     this.isMovingUp = false;
     this.isMovingDown = false;
 
-    this.drawBar = function () {
+    this.drawBar = function() {
         context.beginPath();
         context.rect(this.coorX, this.coorY)
         context.endPath();
     }
 
-    this.moveUp = function () {
+    this.moveUp = function() {
         this.coorY -= this.speed;
     }
 
-    this.moveDown = function () {
+    this.moveDown = function() {
         this.coorY += this.speed;
     }
 
-    this.barBound = function () {
+    this.barBound = function() {
         if (this.coorY < 0) {
             this.coorY = 0;
         }
