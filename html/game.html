@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bouncing Ball Game</title>
-    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="../css/game.css">
     <style>
         canvas {
             border: brown 2px solid;
             display: block;
             margin: 0 auto;
+            background-color: #c5c5c5;
+        }
+
+        body{
+            background-image: url("gameBackground.png");
         }
 
         .board {
@@ -25,30 +30,26 @@
 
         th {
             width: 150px;
-            height: 300px;
+            height: 250px;
+            background-color: lightgrey;
+            font-size: 200px;
         }
 
-        #1 {
-            display: block;
-            width: 30%;
-            float: right;
-            background-color: #2b2b2b;
-        }
     </style>
 </head>
 
 <body>
-<div id="board">
-</div>
-<br>
-<br>
 <table border="1">
     <th id="0"> - </th>
     <th id="1"> - </th>
 </table>
+<br>
+<br>
+<div id="board">
+</div>
 </body>
 
-<script src="js/class.js"></script>
-<script src="js/main.js"></script>
+<script src="../js/class.js"></script>
+<script src="../js/main.js"></script>
 
 </html>

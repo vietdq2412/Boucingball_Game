@@ -147,7 +147,7 @@ function run(game) {
     } else {
         alert('good bye!');
 
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
     }
 
     //requestAnimationFrame(run);

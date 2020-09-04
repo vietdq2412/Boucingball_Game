@@ -71,9 +71,9 @@ function Ball(name) {
         this.coorX += this.speedX;
         this.coorY += this.speedY;
 
-        if (this.coorX + this.radius > canvas.width && this.speedX > 0) {
-            this.speedX = -this.speedX;
-        }
+            // if (this.coorX + this.radius > canvas.width && this.speedX > 0) {
+            //     this.speedX = -this.speedX;
+            // }
 
         if (this.coorY - this.radius < 0 && this.speedY < 0) {
             this.speedY = -this.speedY;
@@ -97,10 +97,10 @@ function Ball(name) {
                 c = true;
             }
         } else {
-            if (this.coorY + this.radius / 2 >= bar.coorY &&
-                this.coorY - this.radius / 2 <= bar.coorY + bar.height &&
+            if (this.coorY + this.radius  >= bar.coorY &&
+                this.coorY - this.radius  <= bar.coorY + bar.height &&
                 this.coorX + this.radius > bar.coorX &&
-                //this.coorX + this.radius + bar.width < bar.coorX + bar.width &&
+                this.coorX + this.radius < bar.coorX + bar.width &&
                 this.speedX > 0) {
                 c = true;
             }
