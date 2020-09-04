@@ -88,8 +88,8 @@ function Ball(name) {
         //console.log(bar.width + ' - ' + this.radius);
         let c = false;
         if (bar.name == 'barLeft') {
-            if (this.coorY + this.radius / 2 >= bar.coorY &&
-                this.coorY - this.radius / 2 <= bar.coorY + bar.height &&
+            if (this.coorY + this.radius >= bar.coorY &&
+                this.coorY - this.radius <= bar.coorY + bar.height &&
                 this.coorX - this.radius - bar.width < bar.coorX &&
                 this.coorX - this.radius > bar.coorX &&
                 this.speedX < 0) {
