@@ -7,6 +7,7 @@ let context = canvas.getContext('2d');
 canvas.width = X;
 canvas.height = Y;
 
+
 let paddle = new Bar(70, 'barLeft');
 let paddle2 = new Bar(canvas.width - 70, 'barRight');
 gameBoard.getBar(paddle);
@@ -35,6 +36,10 @@ function randomDirection(b) {
 
 run(gameBoard);
 ////
+context.beginPath();
+context.lineTo(canvas.width/2, canvas.height);
+context.stroke();
+context.closePath();
 document.addEventListener('keydown', function (event) {
     if (event.keyCode == 83) {
         paddle.isMovingDown = true;

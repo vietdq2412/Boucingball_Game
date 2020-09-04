@@ -1,0 +1,27 @@
+canvas {
+    border: brown 2px solid;
+    display: block;
+    margin: 0 auto;
+    background-color: #c5c5c5;
+}
+
+body{
+    background-image: url("../image/gameBackground.png");
+}
+
+.board {
+    width: 100%;
+    height: 1000px;
+    margin: 0 auto;
+}
+
+table {
+    margin: 0 auto;
+}
+
+th {
+    width: 150px;
+    height: 250px;
+    background-color: lightgrey;
+    font-size: 200px;
+}
